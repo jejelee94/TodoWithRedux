@@ -22,11 +22,11 @@ const reducer = (state = [], action) => {
 			return [{ type: action.text, id: Date.now() }, ...state];
 		case DELETE:
 			return state.filter((toDo) => toDo !== action.id);
+		default:
+			return state;
 	}
 };
 
-const store = createStore();
-
-store.subscribe();
+const store = createStore(reducer);
 
 export default store;
